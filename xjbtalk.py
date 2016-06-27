@@ -13,5 +13,14 @@ def start_and_help(message):
 def echo_all(message):
     bot.reply_to(message, message.text)
 
+@bot.inline_handler(lambda query: query.query == 'text')
+def query_text(inline_query):
+    try:
+        r = telebot.types.InlineQueryResultArticle('1', 'Result', telebot.types.InputTextMessageContent('Result message.'))
+        r2 = telebot.types.InlineQueryResultArticle('2', 'Result2', telebot.types.InputTextMessageContent('Result message2.'))
+        bot.answer_inline_query(inline_query.id, [r, r2])
+    except Exception as e:
+        print(e)
+
 
 bot.polling()
