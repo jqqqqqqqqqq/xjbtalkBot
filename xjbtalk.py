@@ -4,7 +4,9 @@ bot = telebot.TeleBot("224142514:AAH7bfxWs6G9L4BSqK-VQ3HzJlJVE7TaKFE")
 
 @bot.message_handler(commands=['start','help'])
 def start_and_help(message):
-    bot.reply_to(message,"Hi!")
+    # bot.reply_to(message,"Hi!")
+    bot.send_message(message.chat.id,"hello")
+
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
