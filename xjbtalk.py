@@ -9,7 +9,7 @@ def start_and_help(message):
     bot.send_message(message.chat.id,"hello")
 
 
-@bot.message_handler(func=lambda message: message.document.mime_type == 'text/plain')
+@bot.message_handler(func=lambda message: True)
 def echo_all(message):
     bot.reply_to(message, message.text)
 
