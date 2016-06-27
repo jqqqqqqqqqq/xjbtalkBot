@@ -18,8 +18,9 @@ def query_text(inline_query):
     try:
         r = telebot.types.InlineQueryResultArticle('1', 'Result', telebot.types.InputTextMessageContent('Result message.'))
         r2 = telebot.types.InlineQueryResultArticle('2', 'Result2', telebot.types.InputTextMessageContent('Result message2.'))
-        r3 = telebot.types.InlineQueryResultArticle('3', 'Custom', telebot.types.InputTextMessageContent(str(inline_query.location.latitude) + ', '+str(inline_query.location.longtitude)))
-        bot.answer_inline_query(inline_query.id, [r, r2, r3])
+        #r3 = telebot.types.InlineQueryResultArticle('3', 'Custom', telebot.types.InputTextMessageContent(str(inline_query.location.latitude) + ', '+str(inline_query.location.longtitude)))
+        print inline_query.__dict__
+        bot.answer_inline_query(inline_query.id, [r, r2])
     except Exception as e:
         print(e)
 
