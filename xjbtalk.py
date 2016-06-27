@@ -13,7 +13,7 @@ def start_and_help(message):
 def echo_all(message):
     bot.reply_to(message, message.text)
 
-@bot.inline_handler(lambda query: True)  #query.query == 'text')
+@bot.inline_handler(lambda query: query.query == 'text')
 def query_text(inline_query):
     try:
         r = telebot.types.InlineQueryResultArticle('1', 'Result', telebot.types.InputTextMessageContent('Result message.'))
